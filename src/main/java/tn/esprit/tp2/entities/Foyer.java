@@ -2,10 +2,7 @@ package tn.esprit.tp2.entities;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -24,10 +21,12 @@ public class Foyer {
     ;
 
     //one to one avec universite
-    @OneToOne
-    private Universite université;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Universite universite;
 
 //one to many avec bloc
     @OneToMany(mappedBy = "foyer")
+    @ToString.Exclude
+
     private List<Bloc> bloc;
 }

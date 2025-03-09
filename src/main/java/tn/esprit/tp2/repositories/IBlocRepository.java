@@ -5,5 +5,6 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.tp2.entities.Bloc;
 
 @Repository
-public interface IBlocRepository extends JpaRepository<Bloc, Long> {
+public interface
+IBlocRepository extends JpaRepository<Bloc, Long> {
 }

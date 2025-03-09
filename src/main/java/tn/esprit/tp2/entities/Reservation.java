@@ -14,11 +14,17 @@ import java.util.List;
 public class Reservation {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int idReservation;
-private Date anneeUniversitaire;
+@Setter
+private Date  dateReservation;  ;
 private boolean estValide;
 
 @ManyToMany(mappedBy = "reservations")
    private List<Etudiant> etudiants;
 
+
+    public Chambre getChambre() {
+    return new Chambre();
+    }
 }

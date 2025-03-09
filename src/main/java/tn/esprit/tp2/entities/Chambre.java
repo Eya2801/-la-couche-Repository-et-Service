@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import java.util.Set;
 
 @Entity
@@ -15,17 +16,21 @@ import java.util.Set;
 @Setter
 
 public class Chambre {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idChambre;
-    private Long numeroChambre;
-@Enumerated(EnumType.STRING)
+    private Long num;
+    private int capaciteMax;
+
+    @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
-@ManyToOne
+    @ManyToOne
     private Bloc bloc;
-//unidirectionnel
-@OneToMany
+    //unidirectionnel
+    @OneToMany
     private Set<Reservation> reservations;
 
 
+
 }
+

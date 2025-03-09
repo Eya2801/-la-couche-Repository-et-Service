@@ -22,6 +22,7 @@ public class Bloc {
 
 
     @ManyToOne
+    @JoinColumn(name = "foyer_id")
     private Foyer foyer;
 
     @OneToMany(mappedBy = "bloc")

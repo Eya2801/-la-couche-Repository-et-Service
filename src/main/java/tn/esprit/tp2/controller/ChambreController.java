@@ -3,7 +3,6 @@ package tn.esprit.tp2.controller;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tp2.entities.Chambre;
-import tn.esprit.tp2.entities.Etudiant;
 import tn.esprit.tp2.services.IChambreServices;
 
 import java.util.List;
@@ -12,29 +11,71 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/chambre")
 public class ChambreController {
-    IChambreServices chambreServices;
 
-    @GetMapping("/retrieveallchambres")
-    public List<Chambre> retrieveAllChambres() {
-        return chambreServices.retrieveAllChambres();
+    private final IChambreServices chambreServices;
 
+    @PostMapping("addChambre")
+    public Chambre addChambre(@RequestBody Chambre chambre) {
+        return chambreServices.addChambre(chambre);
     }
 
-    @GetMapping("/retrievechambre/{chambreid}")
-    public Chambre retrieveChambre(@PathVariable Long chambreid)  {
-        return chambreServices.retrieveChambre(chambreid);
+    @PostMapping("addChambres")
+    public List<Chambre> addChambres(@RequestBody List<Chambre> chambres) {
+        return chambreServices.addChambres(chambres);
     }
 
-
-    @PostMapping("/addchambre")
-    public Chambre addChambre(@RequestBody Chambre c) {
-        return chambreServices.addChambre(c);
+    @PutMapping("updateChambre")
+    public Chambre updateChambre(@RequestBody Chambre chambre) {
+        return chambreServices.updateChambre(chambre);
     }
 
-    @PutMapping ("/updatechambre")
-    public Chambre updateChambre (@RequestBody Chambre c) {
-        return chambreServices.updateChambre(c);
+    @PutMapping("updateChambres")
+    public List<Chambre> updateChambres(@RequestBody List<Chambre> chambres) {
+        return chambreServices.updateChambres(chambres);
     }
 
+    @DeleteMapping("deleteChambre")
+    public void deleteChambre(@RequestBody Chambre chambre) {
+        chambreServices.deleteChambre(chambre);
     }
 
+    @DeleteMapping("deleteChambreById")
+    public void deleteChambreById(@RequestParam Long id) {
+        chambreServices.deleteChambreById(id);
+    }
+
+    @DeleteMapping("deleteAllChambre")
+    public void deleteAll() {
+        chambreServices.deleteAll();
+    }
+
+    @DeleteMapping("deleteAllChambres")
+    public void deleteAll(@RequestBody List<Chambre> chambres) {
+        chambreServices.deleteAll(chambres);
+    }
+
+    @DeleteMapping("deleteAllChambreById")
+    public void deleteAllById(@RequestParam List<Long> ids) {
+        chambreServices.deleteAllById(ids);
+    }
+
+    @GetMapping("findAllChambres")
+    public List<Chambre> findAll() {
+        return chambreServices.findAll();
+    }
+
+    @GetMapping("findChambreById")
+    public Chambre findById(@RequestParam Long id) {
+        return chambreServices.findById(id);
+    }
+
+    @GetMapping("countChambre")
+    public long count() {
+        return chambreServices.count();
+    }
+
+    @GetMapping("existsChambreById")
+    public boolean existsById(@RequestParam Long id) {
+        return chambreServices.existsById(id);
+    }
+}

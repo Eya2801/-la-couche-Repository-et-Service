@@ -1,28 +1,41 @@
 package tn.esprit.tp2.services;
 
-
-import tn.esprit.tp2.entities.Etudiant;
 import tn.esprit.tp2.entities.Foyer;
-
 
 import java.util.List;
 
 public interface IFoyerServices {
 
-     Foyer findByid(long id);
+    // Récupérer un foyer par son ID
+    Foyer findByid(long id);
+
+    // Récupérer tous les foyers
     List<Foyer> findAll();
-     Foyer save (Foyer foyer);
-   void delete(Foyer foyer);
-     List<Foyer> retrieveAllFoyers();
 
-     Foyer addFoyer (Foyer f);
+    // Sauvegarder un foyer
+    Foyer save(Foyer foyer);
 
-     Foyer updateFoyer (Foyer f);
-    Foyer retrieveFoyer (long  idFoyer);
+    // Supprimer un foyer
+    void delete(Foyer foyer);
 
-     void removeFoyer (long idFoyer);
+    // Récupérer tous les foyers
+    List<Foyer> retrieveAllFoyers();
 
-     Foyer getNomCapacite(String nomFoyer, Long capaciteFoyer);
+    // Ajouter un foyer
+    Foyer addFoyer(Foyer f);
 
+    // Mettre à jour un foyer
+    Foyer updateFoyer(Foyer f);
 
+    // Récupérer un foyer par son ID
+    Foyer retrieveFoyer(long idFoyer);
+
+    // Supprimer un foyer par son ID
+    void removeFoyer(long idFoyer);
+
+    // Récupérer un foyer par son nom et sa capacité
+    Foyer getNomCapacite(String nomFoyer, Long capaciteFoyer);
+
+    // Ajouter un foyer et l'affecter à une université
+    Foyer ajouterFoyerEtAffecterAUniversite(Foyer foyer, long idUniversite);
 }

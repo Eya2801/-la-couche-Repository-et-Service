@@ -14,11 +14,15 @@ import lombok.Setter;
 
 public class Universite {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long idUniversite;
     private String nomUniversite;
     private String address;
 
 
-    @OneToOne(mappedBy = "université")
+    @OneToOne(mappedBy = "universite")
     private Foyer foyer;
+
+
 }

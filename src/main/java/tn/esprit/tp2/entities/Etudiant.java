@@ -22,7 +22,7 @@ public class Etudiant {
   private Long idEtudiant;
   private String nomEtudiant;
   private String prenomEtudiant;
-  private Long cin;
+  private Long cinEtudiant;
   private String ecole;
   private Date dateNaissance;
 
